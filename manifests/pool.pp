@@ -5,7 +5,10 @@ define dhcp::pool (
   $range       = '',
   $failover    = '',
   $options     = '',
-  $parameters  = ''
+  $parameters  = '',
+  $oncommit    = '',
+  $onrelease   = '',
+  $onexpiry    = '',
 ) {
 
   include dhcp::params

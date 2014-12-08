@@ -34,5 +34,38 @@ subnet <%= @network %> netmask <%= @mask %> {
 <% elsif @parameters != '' -%>
   <%= @parameters %>;
 <% end -%>
+<% if @oncommit.is_a? Array -%>
+  on commit {
+  <% @oncommit.each do |commit| -%>
+    <%= commit %>;  
+  <% end -%>
+  }
+<% elsif @oncommit != '' -%>
+  on commit {
+    <%= @oncommit %>;
+  }
+<% end -%>
+<% if @onrelease.is_a? Array -%>
+  on release {
+  <% @onrelease.each do |release| -%>
+    <%= release %>;
+  <% end -%>
+  }
+<% elsif @onrelease != '' -%>
+  on release {
+    <%= @onrelease %>;
+  }
+<% end -%>
+<% if @onexpiry.is_a? Array -%>
+  on expiry {
+  <% @onexpiry.each do |expiry| -%>
+    <%= expiry %>;
+  <% end -%>
+  }
+<% elsif @onexpiry != '' -%>
+  on expiry {
+    <%= @onexpiry %>;
+  }
+<% end -%>
 }
 
